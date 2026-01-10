@@ -44,6 +44,7 @@ const students = [
     grades: [15, 10, 50],
   },
 ];
+
 //question two
 //claculating the avegardegrades
 const averageGrades = (grades) => {
@@ -70,9 +71,20 @@ console.log(passing);
 //calculating class average
 const classAverage = (students) => {
   const sum = students.reduce((total, student) => total + student.average, 0);
+  //dividing the total by the number of students to get the average
   const average = sum / students.length;
+  //roundup the average to 2dp using math.round
   return Math.round(average * 100) / 100;
 };
-
 const classAvg = classAverage(studentsWithAverage);
 console.log(classAvg);
+
+//question five
+// Finding a student based on their unique identifer(id)
+const findStudentById = (students, id) => {
+  //using find to search for student based on the id given
+  const student = students.find((student) => student.id === id);
+  //if the student is found return the student otherwise return null
+  return student || null;
+};
+console.log(findStudentById(students, 12));
